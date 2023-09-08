@@ -1,0 +1,19 @@
+package com.jpa.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.jpa.demo.dao.UserRepositoty;
+
+@SpringBootApplication
+public class BootjpaApplication {
+
+	public static void main(String[] args) {
+	    ApplicationContext context = SpringApplication.run(BootjpaApplication.class, args);
+	    
+	   UserRepositoty userRepo = context.getBean(UserRepositoty.class);
+	   
+	}
+
+}

@@ -1,0 +1,5 @@
+spring.datasource.name=test
+spring.datasource.url=jdbc:mysql://localhost:3306/test
+spring.datasource.username=root
+spring.datasource.password=Mohit@12345
+spring.datasource.driver-class-name=

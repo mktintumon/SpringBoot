@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;aopdemo&apos;&#x0D;&#x0A;- Original project: &apos;aopdemo&apos;&#x0D;&#x0A;- Original element: &apos;aopdemo/src/main/java/org.aspectj.lang.annotation&apos;" description="Delete element" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.aspectj.lang.annotation" element2="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.aspectj.lang" element3="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.aspectj" element4="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1694166191583" subPackages="false" version="1.0"/>
+</session>

@@ -1,0 +1,7 @@
+package com.jpa.demo.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepositoty extends CrudRepository<User, Integer>{
+	// automatic implementation
+}

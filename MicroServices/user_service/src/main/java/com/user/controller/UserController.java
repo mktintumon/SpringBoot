@@ -27,8 +27,9 @@ public class UserController {
     public User getUser(@PathVariable("uid") Long uid){
         User user = this.userService.getUsers(uid);
 
+        // replace -> (localhost:9002/contacts)  BY (contact-services)
         List<Contact> contacts = 
-            this.restTemplate.getForObject("http://localhost:9002/contacts/users/" + user.getUid(), List.class);
+            this.restTemplate.getForObject("http://contact-service/contacts/users/" + user.getUid(), List.class);
 
         user.setContacts(contacts);
 

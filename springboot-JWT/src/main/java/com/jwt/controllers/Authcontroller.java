@@ -1,7 +1,7 @@
-package com.jwt.config;
+package com.jwt.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jwt.entities.User;
 import com.jwt.models.JWTRequest;
 import com.jwt.models.JWTResponse;
 import com.jwt.security.JwtHelper;
+import com.jwt.services.UserService;
 
 @RestController
 @RequestMapping("/auth")
@@ -33,16 +35,19 @@ public class Authcontroller {
     @Autowired
     private JwtHelper helper;
 
-    private Logger logger = LoggerFactory.getLogger(Authcontroller.class);
+    @Autowired
+    private UserService userService;
+
+    //private Logger logger = LoggerFactory.getLogger(Authcontroller.class);
 
 
     @PostMapping("/login")
     public ResponseEntity<JWTResponse> login(@RequestBody JWTRequest request) {
 
-        this.doAuthenticate(request.getUsername(), request.getPassword());
+        this.doAuthenticate(request.getEmail(), request.getPassword());
 
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
         String token = this.helper.generateToken(userDetails);
 
         JWTResponse response = JWTResponse.builder()
@@ -68,5 +73,10 @@ public class Authcontroller {
     @ExceptionHandler(BadCredentialsException.class)
     public String exceptionHandler() {
         return "Credentials Invalid !!";
+    }
+
+    @PostMapping("/create")
+    public User createUser(@RequestBody User user){
+        return userService.createUser(user);
     }
 }
